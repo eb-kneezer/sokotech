@@ -1,0 +1,27 @@
+.confused img {
+    width: 30%;
+}
+
+.emptyContainer {
+    width: 100%;
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+.confused {
+    width: 600px;
+    margin: 0  auto 30px auto;
+}
+
+.backBtn {
+    margin-top: 40px;
+    padding: 10px 60px;
+    background-color: var(--yellow);
+    color: var(--blue);
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid transparent;
+}

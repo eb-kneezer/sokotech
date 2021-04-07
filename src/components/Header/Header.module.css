@@ -1,0 +1,95 @@
+.madeWith {
+    background-color: rgba(39,102,204,255);
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.withsoko {
+    padding: 15px 0;
+}
+
+.store {
+    padding: 20px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+.store .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.storeDetails {
+    display: flex;
+    align-items: center;
+}
+.storeIcon {
+    height: 70px;
+    width: 70px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background-color: rgba(218, 218, 218, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.storeIcon i {
+    font-size: 28px;
+    color: rgb(180, 180, 180);
+}
+
+.storeName {
+    margin-bottom: 10px;
+}
+
+.storeDescription p {
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+}
+
+.storeBagAccount {
+    display: flex;
+}
+
+.storeBagAccount button {
+    font-size: 18px;
+    color: rgb(180, 180, 180);
+    outline: none;
+    border: none;
+    background-color: #fff;
+    margin-left: 20px;
+    padding: 7px 15px;
+    border-radius: 20px;
+}
+.storeBagAccount button:hover,
+.storeBagAccount button:focus {
+    color: var(--blue);
+    background-color: rgba(39,102,204, 0.1);
+}
+
+.storeBagAccount i {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.storeBag {
+    position: relative;
+}
+.popup {
+    position: absolute;
+    top: 3px;
+    left: 35px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    background-color: rgb(243, 78, 78);
+}
+.popup.hidden {
+    visibility: hidden;
+}

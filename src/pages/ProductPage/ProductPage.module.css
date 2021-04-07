@@ -1,0 +1,94 @@
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.product {
+    margin: 30px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.productImage {
+    height: 350px;
+    width: 400px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    /* background-color: cadetblue; */
+}
+
+img {
+    background-size: contain;
+    height: 100%;
+}
+
+.productInfo {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    height: 350px;
+    padding: 30px 0;
+    margin-left: 30px;
+}
+
+.productDescription{
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.productPrice p {
+    margin: 30px 0 20px 0;
+    font-size: 20px;
+}
+
+.amount {
+    border: 1px solid rgba(39,102,204,255);
+    border-radius: 3px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+span {
+    text-align: center;
+    display: inline-block;
+    height: 100%;
+    width: 25px;
+    font-size: 18px;
+
+}
+
+span.change {
+    background-color: rgba(39,102,204,0.3);
+    cursor: pointer;
+}
+
+.productPageCta button {
+    padding: 10px 60px;
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+button > * {
+    pointer-events: none;
+}
+
+.add {
+    background-color: #fff;
+    border: 2px solid var(--blue);
+    margin-right: 20px;
+}
+.buy {
+    border: 2px solid transparent;
+    background-color: var(--yellow);
+}

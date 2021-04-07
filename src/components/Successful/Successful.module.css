@@ -1,0 +1,51 @@
+.successful {
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.successful img {
+    width: 70px;
+}
+
+.successful h3 {
+    margin-bottom: 10px;
+}
+
+.successful p {
+    margin-bottom: 20px;
+}
+
+.successful p span {
+    display: inline;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.successCta {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+   }
+   
+   .successCta button {
+       padding: 10px 50px;
+       border-radius: 5px;
+       outline: none;
+       font-weight: 700;
+       color: var(--blue);
+   }
+   .track {
+    margin-right: 15px;
+    border: 2px solid var(--blue);
+    background-color: #fff;
+   }
+   
+   .goHome {
+   /* color: aqua; */
+   border: 2px solid transparent;
+   background-color: var(--yellow);
+   }

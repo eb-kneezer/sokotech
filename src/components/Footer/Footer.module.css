@@ -1,0 +1,31 @@
+.storeFeatures {
+    background-color: rgba(39,102,204,255);
+    color: #fff;
+}
+
+.featureContainer {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feature {
+    padding: 30px;
+    text-align: center;
+}
+.feature i {
+    font-size: 30px;
+    color: rgba(248,222,75,255);
+}
+
+.storeDetails {
+    padding: 20px;
+    text-align: center;
+}
+
+.storeDetails h4 {
+    text-transform: uppercase;
+    margin: 10px 0;
+}

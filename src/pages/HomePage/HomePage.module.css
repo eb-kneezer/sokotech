@@ -1,0 +1,132 @@
+/* .homepage {
+    margin-top: 20px;
+} */
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.products {
+    flex: 2;
+    padding: 30px;
+    position: relative;
+    border-right: 1px solid rgb(220, 220, 220);
+    border-left: 1px solid rgb(220, 220, 220);
+}
+
+.productHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.productHeader h3 {
+    font-size: 20px;
+    color: grey;
+}
+.number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    height: 25px;
+    width: 30px;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: #fff;
+}
+
+.searchProducts {
+    position: absolute;
+    width: 90%;
+    height: 40px;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.searchProducts input {
+    padding: 10px;
+    height: 100%;
+    font-size: 16px;
+    flex-grow: 1;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background-color: rgb(238, 238, 238);
+}
+.searchProducts button {
+    /* padding: 10px; */
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--yellow);
+    color: var(--blue);
+    height: 100%;
+    width: 40px;
+}
+
+.productsContainer {
+    margin-top: 20px;
+}
+
+.productsCategory {
+    flex: 1;
+    margin-top: 25px;
+}
+
+/* .category {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: grey;
+    position: relative;
+    padding: 10px;
+}
+
+.category.active {
+    background-image: linear-gradient(to right, transparent ,rgba(62, 118, 209, 0.2));
+}
+.category.active::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: rgba(39,102,204,255);
+
+} */
+
+.bag {
+    flex: 1;
+    margin: 30px;
+}
+
+.bagHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.bagHeader h3 {
+    font-size: 20px;
+}
+
+.bagContainer {
+    position: relative;
+    margin: 10px 0;
+}
+.clear {
+    position: absolute;
+    right: 0;
+    top: -50px;
+    color: grey;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.clear.hide {
+    visibility: hidden;
+}

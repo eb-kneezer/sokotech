@@ -1,0 +1,23 @@
+.category {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: grey;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.category.active {
+    background-image: linear-gradient(to right, transparent ,rgba(62, 118, 209, 0.2));
+}
+.category.active::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: rgba(39,102,204,255);
+
+}
