@@ -54,12 +54,14 @@
     font-size: 16px;
     flex-grow: 1;
     border: none;
+    outline: none;
     border-radius: 5px 0 0 5px;
     background-color: rgb(238, 238, 238);
 }
 .searchProducts button {
     /* padding: 10px; */
     border: none;
+    outline: none;
     border-radius: 0 5px 5px 0;
     background-color: var(--yellow);
     color: var(--blue);
@@ -76,57 +78,7 @@
     margin-top: 25px;
 }
 
-/* .category {
-    width: 100%;
-    font-size: 16px;
-    font-weight: 500;
-    color: grey;
-    position: relative;
-    padding: 10px;
-}
-
-.category.active {
-    background-image: linear-gradient(to right, transparent ,rgba(62, 118, 209, 0.2));
-}
-.category.active::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 0;
-    width: 4px;
-    height: 100%;
-    background-color: rgba(39,102,204,255);
-
-} */
-
-.bag {
+.bagListContainer {
     flex: 1;
-    margin: 30px;
-}
-
-.bagHeader {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.bagHeader h3 {
-    font-size: 20px;
-}
-
-.bagContainer {
-    position: relative;
-    margin: 10px 0;
-}
-.clear {
-    position: absolute;
-    right: 0;
-    top: -50px;
-    color: grey;
-    font-size: 18px;
-    font-weight: 400;
-    text-decoration: underline;
-    cursor: pointer;
-}
-.clear.hide {
-    visibility: hidden;
+    margin: 30px 0 30px 30px;
 }

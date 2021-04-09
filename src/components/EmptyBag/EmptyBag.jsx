@@ -13,7 +13,7 @@ export default function EmptyBag() {
             <h3>It's empty here</h3>
             <p>start shopping to add items to your bag</p>
 
-            <button className={styles.backBtn}>Back to Homepage</button>
+            
         </div>
     )
 }

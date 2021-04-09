@@ -1,6 +1,9 @@
 import React, {useContext, useState} from 'react'
-import BagItem from '../../components/BagItem/BagItem'
+import {useHistory} from 'react-router-dom'
+import BagList from '../../components/BagList/BagList'
+// import BagItem from '../../components/BagItem/BagItem'
 import Category from '../../components/Category/Category'
+import EmptyBag from '../../components/EmptyBag/EmptyBag'
 import Product from '../../components/Product/Product'
 import { MarketContext } from '../../context'
 
@@ -8,14 +11,13 @@ import { MarketContext } from '../../context'
 import styles from './HomePage.module.css'
 
 const HomePage = () => {
-
     
     
     const {allProducts, cart} = useContext(MarketContext);
     const [products] = allProducts;
     const [bag, setBag] = cart;
 
-    
+
     const [activeCat, setActiveCat] = useState({category: 'All', count: products.length})
     
     const filteredProducts = products.filter(product => product.category === activeCat.category)
@@ -24,7 +26,7 @@ const HomePage = () => {
 
     products.forEach(product => {
         if (!allCategories.some(item => item.category === product.category)) {
-            allCategories.unshift({category: product.category, count: 1})
+            allCategories.unshift({category: product.category, count: product.count})
         } else {
             const index = allCategories.findIndex(item => item.category === product.category)
             allCategories[index].count += 1;
@@ -75,36 +77,18 @@ const HomePage = () => {
                                 id={product.id}
                                 title={product.title}
                                 image={product.image}
-                                price={product.price} />
+                                price={product.price}
+                                 />
 
                             )) :
                             'omooo'
                         }
                     </div>
                 </div>
+                <div className={styles.bagListContainer}>
+                <BagList />
 
-                <div className={styles.bag}>
-                    <div className={styles.bagHeader}>
-                        <h3>Bag</h3>
-                        <span className={styles.number}>{bag.length}</span>
-                    </div>
-                    <div className={styles.bagContainer}>
-                        <p 
-                        onClick={() => setBag([])}
-                        className={`${styles.clear} ${bag.length === 0 ? styles.hide : ''}`}>Clear Bag</p>
-                        {
-                            bag.length > 0 ? 
-                            bag.map(item => <BagItem 
-                                key={item.id} 
-                                name={item.title}
-                                price={item.price}
-                                count={item.count} />)
-                                 :
-                                ""
-                        }
-                    </div>
                 </div>
-
             </div>
         </div>
     )

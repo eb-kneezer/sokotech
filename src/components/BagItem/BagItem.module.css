@@ -22,9 +22,11 @@
     color: grey;
     margin: 10px 0;
 }
+.itemPrice {
+    color: rgb(83, 83, 83);
+}
 
-
-span {
+.amount span {
     text-align: center;
     display: inline-block;
     height: 100%;

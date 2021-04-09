@@ -5,6 +5,7 @@ export const MarketContext = createContext(null);
 
 export const MarketContextProvider = ({children}) => {
 
+    const [activeTab, setActiveTab] = useState('')
     const [products, setProducts] = useState([])
     const [bag, setBag] = useState([])
     const [user, setUser] = useState({
@@ -25,6 +26,10 @@ export const MarketContextProvider = ({children}) => {
         })
     }
 
+    const realProducts = products.map(product => {
+        return {...product, count: 1}
+    })
+
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -34,9 +39,10 @@ export const MarketContextProvider = ({children}) => {
 
     return (
         <MarketContext.Provider value={{
-            allProducts: [products],
+            allProducts: [realProducts],
             cart: [bag, setBag],
             account: [user, setUser],
+            tab: [activeTab, setActiveTab],
             handleAddToBag
         }}>
             {children}

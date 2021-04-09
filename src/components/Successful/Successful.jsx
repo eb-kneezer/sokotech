@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import styles from './Successful.module.css'
 import yayImg from '../../assets/yayy.png' 
+import { Link } from 'react-router-dom'
+import { MarketContext } from '../../context'
 
 export default function Successful() {
+
+const {tab} = useContext(MarketContext)
+const [activeTab, setActiveTab] = tab;
+
     return (
         <div className={styles.successful}>
             <img src={yayImg} alt="party popper"/>
@@ -13,7 +19,10 @@ export default function Successful() {
 
             <div className={styles.successCta}>
                 <button className={styles.track}>Track Order</button>
-                <button className={styles.goHome}>Continue Shopping</button>
+                <Link onClick={() => setActiveTab("")} to='./'>
+                    <button 
+                    className={styles.goHome}>Continue Shopping</button>
+                </Link>
             </div>
         </div>
     )

@@ -1,12 +1,16 @@
-import React, {useContext} from 'react'
+import React, { useContext} from 'react'
+import { Link } from 'react-router-dom'
 import { MarketContext } from '../../context'
 
 import styles from './Header.module.css'
 
 const Header = () => {
 
-    const {cart} = useContext(MarketContext)
+    const {cart, tab} = useContext(MarketContext)
     const [bag] = cart;
+    const [activeTab, setActiveTab] = tab;
+
+    
 
 
     return (
@@ -29,15 +33,20 @@ const Header = () => {
                         </div>
                     </div>
                     <div className={styles.storeBagAccount}>
-                        <button className={styles.storeBag}>
-                            <i className="fas fa-shopping-bag"></i>
-                            <span className={`${styles.popup} ${bag.length === 0 ? styles.hidden : ''}`} >{bag.length}</span>
-                            Bag
-                        </button>
-                        <button className={styles.storeAccount}>
-                            <i className="fas fa-user"></i>
-                            Account
-                        </button>
+                        <Link onClick={() => setActiveTab('bag')} to='/bag'>
+                            <button className={`${styles.storeBag} ${activeTab === 'bag'? styles.active : ''}`}>
+                                <i className="fas fa-shopping-bag"></i>
+                                <span className={`${styles.popup} ${bag.length === 0 ? styles.hidden : ''}`} >{bag.reduce((init, item) => ( init +  item.count), 0)}</span>
+                                Bag
+                            </button>
+                        </Link>
+
+                        <Link  onClick={() => setActiveTab('account')} to='/account'>
+                            <button className={`${styles.storeAccount} ${activeTab === 'account'? styles.active : ''}`}>
+                                <i className="fas fa-user"></i>
+                                Account
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

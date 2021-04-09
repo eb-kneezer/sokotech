@@ -12,16 +12,7 @@ h3 {
 }
 
 .confused {
-    width: 600px;
+    width: 100%;
     margin: 0  auto 30px auto;
 }
 
-.backBtn {
-    margin-top: 40px;
-    padding: 10px 60px;
-    background-color: var(--yellow);
-    color: var(--blue);
-    font-weight: bold;
-    border-radius: 5px;
-    border: 2px solid transparent;
-}

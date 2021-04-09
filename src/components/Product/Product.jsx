@@ -10,6 +10,7 @@ const Product = ({id, title, image, price}) => {
     const history = useHistory();
     const {handleAddToBag} = useContext(MarketContext)
 
+    // console.log(prod)
     return (
         <div
         id="prodcon"
