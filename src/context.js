@@ -8,22 +8,36 @@ export const MarketContextProvider = ({children}) => {
     const [activeTab, setActiveTab] = useState('')
     const [products, setProducts] = useState([])
     const [bag, setBag] = useState([])
+    const [orders, setOrders] = useState([])
     const [user, setUser] = useState({
         isLoggedIn: false,
         account: null,
-        deliveryAddress: [],
+        deliveryAddress: [
+        //     {
+        //     name: '',
+        //     phoneNo: '',
+        //     city: '',
+        //     address: '' 
+        // }
+        ],
+        selectedAddress: '',
         paymentMethod: {
-            onDelivery: false,
+            onDelivery: true,
             online: true
         }
     })
 
+
     const handleAddToBag = (id) => {
-        products.forEach(product => {
-            if (product.id === id) {
-                setBag([...bag, {...product, count: 1}])
-            } 
-        })
+        if (bag.some(item => item.id === id)) {
+            return
+        } else {
+            products.forEach(product => {
+                if (product.id === id) {
+                    setBag([...bag, {...product, count: 1}])
+                } 
+            })
+        }
     }
 
     const realProducts = products.map(product => {
@@ -43,6 +57,7 @@ export const MarketContextProvider = ({children}) => {
             cart: [bag, setBag],
             account: [user, setUser],
             tab: [activeTab, setActiveTab],
+            order: [orders, setOrders],
             handleAddToBag
         }}>
             {children}

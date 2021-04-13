@@ -1,3 +1,9 @@
+.successfulWrapper {
+    height: 80vh;
+    display: grid;
+    place-items: center;
+}
+
 .successful {
     width: 500px;
     margin: 0 auto;
@@ -37,6 +43,9 @@
        outline: none;
        font-weight: 700;
        color: var(--blue);
+   }
+   .successCta button:hover {
+       color: var(--yellow);
    }
    .track {
     margin-right: 15px;

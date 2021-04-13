@@ -7,23 +7,30 @@ import { MarketContext } from '../../context'
 
 export default function Successful() {
 
-const {tab} = useContext(MarketContext)
+const {tab, order} = useContext(MarketContext)
+const [orders, setOrders] = order;
 const [activeTab, setActiveTab] = tab;
 
+
     return (
+        <div className={styles.successfulWrapper}>
+
         <div className={styles.successful}>
             <img src={yayImg} alt="party popper"/>
             <h3>Thank you! <br/> Your order has been placed successfully</h3>
             <p>you will recieve a confirmation message as soon as the order is accepted</p>
-            <p>Order Number: <span>John-43dfv</span> </p>
+            <p>Order Id: <span>{`${orders[orders.length -1].orderID}`}</span> </p>
 
             <div className={styles.successCta}>
-                <button className={styles.track}>Track Order</button>
+                <Link onClick={() => setActiveTab("")} to={`/trackorder/${orders[orders.length -1].orderID}`}>
+                    <button className={styles.track}>Track Order</button>
+                </Link>
                 <Link onClick={() => setActiveTab("")} to='./'>
                     <button 
                     className={styles.goHome}>Continue Shopping</button>
                 </Link>
             </div>
+        </div>
         </div>
     )
 }

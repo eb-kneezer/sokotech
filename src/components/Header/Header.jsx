@@ -6,11 +6,10 @@ import styles from './Header.module.css'
 
 const Header = () => {
 
+
     const {cart, tab} = useContext(MarketContext)
     const [bag] = cart;
     const [activeTab, setActiveTab] = tab;
-
-    
 
 
     return (
@@ -22,6 +21,7 @@ const Header = () => {
             </div>
 
             <div className={styles.store}>
+                
                 <div className={styles.container}>
                     <div className={styles.storeDetails}>
                         <div className={styles.storeIcon}>

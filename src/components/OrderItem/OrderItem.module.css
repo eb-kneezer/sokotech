@@ -1,0 +1,40 @@
+
+.orderItem {
+    margin: 10px 0;
+    display: flex;
+    align-items: flex-start;
+}
+.itemImg {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.itemDetails {
+    flex-grow: 1;
+    padding-top: 10px;
+}
+.itemDetails div {
+    width: 60%;
+}
+.itemName {
+    font-size: 16px;
+    font-weight: 600;
+}
+.itemPrice {
+    float: right;
+    font-weight: 600;
+}
+.itemCount {
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    margin-top: 5px;
+    padding: 3px;
+    border-radius: 3px;
+    background-color: rgb(240 , 240, 240);
+}

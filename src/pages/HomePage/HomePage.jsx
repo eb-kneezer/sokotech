@@ -1,9 +1,6 @@
 import React, {useContext, useState} from 'react'
-import {useHistory} from 'react-router-dom'
 import BagList from '../../components/BagList/BagList'
-// import BagItem from '../../components/BagItem/BagItem'
 import Category from '../../components/Category/Category'
-import EmptyBag from '../../components/EmptyBag/EmptyBag'
 import Product from '../../components/Product/Product'
 import { MarketContext } from '../../context'
 
@@ -13,9 +10,8 @@ import styles from './HomePage.module.css'
 const HomePage = () => {
     
     
-    const {allProducts, cart} = useContext(MarketContext);
+    const {allProducts} = useContext(MarketContext);
     const [products] = allProducts;
-    const [bag, setBag] = cart;
 
 
     const [activeCat, setActiveCat] = useState({category: 'All', count: products.length})

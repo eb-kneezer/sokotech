@@ -1,0 +1,86 @@
+.accountPage {
+    max-width: 1200px;
+    width: 90%;
+    min-height: 75vh;
+    margin: 30px auto;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 15px;
+    display: flex;
+}
+
+.accountTabs {
+    width: 250px;
+    padding: 30px 0 30px 30px;
+    border-right: 1px solid rgb(220, 220, 220);
+}
+
+.accountMain {
+    flex-grow: 1;
+    padding: 35px 30px 30px 60px;
+}
+
+.orderHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.orderHeader button {
+    outline: none;
+    padding: 7px 15px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    background-color: #fff;
+    color: grey;
+    font-size: 16px;
+}
+.orderHeader button i {
+    margin-right: 10px;
+}
+
+.emptyAddress {
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    padding: 20px;
+    width: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.emptyAddress p i {
+    margin-right: 10px;
+}
+
+.accountList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: grey;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.category.active {
+    background-image: linear-gradient(to right, transparent ,rgba(62, 118, 209, 0.2));
+}
+.category.active::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: rgba(39,102,204,255);
+
+}
