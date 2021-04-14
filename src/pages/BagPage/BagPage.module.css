@@ -74,3 +74,21 @@ p.green {
 .right {
     float: right;
 }
+
+@media screen and (max-width: 1100px) {
+    .loginComponent {
+        /* flex: 1; */
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .bagPageContainer {
+        flex-direction: column;
+    }
+    .loginComponent {
+        /* flex: 1; */
+        width: 100%;
+        border-right: none;
+    }
+}

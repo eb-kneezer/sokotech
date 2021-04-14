@@ -1,3 +1,14 @@
+.notFound {
+    height: 80vh;
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .container {
     max-width: 1200px;
     width: 90%;
@@ -91,4 +102,45 @@ button > * {
 .buy {
     border: 2px solid transparent;
     background-color: var(--yellow);
+}
+
+
+.relatedProducts {
+    margin-top: 80px;
+}
+.relatedHeader {
+    font-size: 18px;
+    color: grey;
+}
+.relatedContent {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+    padding: 15px 0;
+    border-top: 1px solid rgb(220, 220, 220);
+}
+
+.singleRelated {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 250px;
+}
+
+.relatedImg {
+    width: 100%;
+    height: 190px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.relatedImg img {
+    height: 100%;
+}
+
+.relatedName {
+    flex-grow: 1;
+    padding: 10px;
+    font-weight: 500;
 }

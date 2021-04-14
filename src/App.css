@@ -23,23 +23,3 @@ body {
 h1, h2, h3 {
     color: rgba(39,39,39,118);
 }
-
-/* .goBack {
-    position: absolute;
-    top: 55px;
-    transform: translateY(-50%);
-    left: 130px;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-.goBack i {
-    font-size: 34px;
-    color: rgba(220, 220, 220, 0.7);
-}
-.goBack i:hover {
-    color: var(--blue);
-} */

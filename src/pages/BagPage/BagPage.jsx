@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
-import AccountDetails from '../../components/AccountDetails/AccountDetails'
-import BagList from '../../components/BagList/BagList'
+import AccountDetails from '../../HOC/AccountDetails/AccountDetails'
+import BagList from '../../HOC/BagList/BagList'
 import EmptyBag from '../../components/EmptyBag/EmptyBag'
 import { MarketContext } from '../../context'
 

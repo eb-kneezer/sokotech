@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import BagList from '../../components/BagList/BagList'
+import BagList from '../../HOC/BagList/BagList'
 import Category from '../../components/Category/Category'
 import Product from '../../components/Product/Product'
 import { MarketContext } from '../../context'
@@ -13,10 +13,17 @@ const HomePage = () => {
     const {allProducts} = useContext(MarketContext);
     const [products] = allProducts;
 
-
+    const [search, setSearch] = useState('')
     const [activeCat, setActiveCat] = useState({category: 'All', count: products.length})
     
-    const filteredProducts = products.filter(product => product.category === activeCat.category)
+    const filteredProducts = products
+    .filter(product => {
+        if (activeCat.category === 'All'){
+            return product
+        } else {
+            return product.category === activeCat.category}})
+    .filter(product => product.title.toLowerCase().includes(search.toLowerCase()));
+
 
     const allCategories = [{category: 'All', count: products.length}];
 
@@ -47,7 +54,12 @@ const HomePage = () => {
 
                 <div className={styles.products}>
                     <div className={styles.searchProducts}>
-                        <input placeholder="Search for products..." type="search" name="" id=""/>
+                        <input 
+                        placeholder="Search for products..." 
+                        type="search" 
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        />
                         <button><i className="fas fa-search"></i></button>
                     </div>
                     <div className={styles.productHeader}>
@@ -56,17 +68,7 @@ const HomePage = () => {
                     </div>
                     <div className={styles.productsContainer}>
                         {
-                            products.length > 0  && activeCat.category === 'All' ? 
-                            products.map(product => (
-                                <Product 
-                                key={product.id} 
-                                id={product.id}
-                                title={product.title}
-                                image={product.image}
-                                price={product.price} />
-
-                            )) :
-                            activeCat !== "All" ?
+                            filteredProducts.length > 0 ?
                             filteredProducts.map(product => (
                                 <Product 
                                 key={product.id} 
@@ -76,8 +78,9 @@ const HomePage = () => {
                                 price={product.price}
                                  />
 
-                            )) :
-                            'omooo'
+                            )) 
+                            :
+                            'no products'
                         }
                     </div>
                 </div>

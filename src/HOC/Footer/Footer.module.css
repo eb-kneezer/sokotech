@@ -1,13 +1,14 @@
 .storeFeatures {
-    background-color: rgba(39,102,204,255);
+    background-color: var(--blue);
     color: #fff;
 }
 
 .featureContainer {
-    width: 600px;
+    max-width: 600px;
+    width: 70%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -17,7 +18,7 @@
 }
 .feature i {
     font-size: 30px;
-    color: rgba(248,222,75,255);
+    color: var(--yellow);
 }
 
 .storeDetails {

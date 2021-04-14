@@ -1,3 +1,4 @@
+import { getAllByTestId } from '@testing-library/dom'
 import React, {useContext} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import { MarketContext } from '../../context'
@@ -13,6 +14,24 @@ const ProductPage = () => {
     const [bag, setBag] = cart;
 
     const pageProduct = products.find(item => item.id === (+productID));
+
+    const truncate = (input) => input.length > 20 ? `${input.substring(0, 40)}...` : input;
+
+    const relatedProducts = products.filter(product => pageProduct.category === product.category && pageProduct.id !== product.id)
+
+
+    if (!pageProduct) {
+        return (
+            <div className={styles.notFound}>
+                <h1>Please wait...</h1>
+                <p>if this takes too long please go back home</p>
+                <Link to="/">
+                Go Home
+                </Link>
+            </div>
+            )
+    }    
+
     const handleCount = (e) => {
         
         let updatedCount = bag.map(i => {
@@ -74,7 +93,26 @@ const ProductPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.relatedProducts}></div>
+
+
+                <div className={styles.relatedProducts}>
+                    <p className={styles.relatedHeader}>RELATED PRODUCTS</p>
+                    <div className={styles.relatedContent}>
+                        {
+                            relatedProducts.map(item => (
+
+                             <div className={styles.singleRelated}>
+                                 <div className={styles.relatedImg}>
+                                     <img src={item.image} alt={item.title}/>
+                                 </div>
+                                 <div className={styles.relatedName}>
+                                     <p>{truncate(item.title)}</p>
+                                 </div>
+                             </div>
+                            ))
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )

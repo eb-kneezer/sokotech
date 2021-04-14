@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import {useHistory} from 'react-router-dom'
 import OtpInput from 'react-otp-input';
 import { MarketContext } from '../../context'
-import Address from '../Address/Address';
+import Address from '../../components/Address/Address';
 
 import styles from './AccountDetails.module.css'
 

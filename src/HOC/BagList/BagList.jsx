@@ -1,8 +1,8 @@
 import React, {useContext} from 'react'
 import { MarketContext } from '../../context'
 
-import EmptyBag from '../EmptyBag/EmptyBag'
-import BagItem from '../BagItem/BagItem'
+import EmptyBag from '../../components/EmptyBag/EmptyBag'
+import BagItem from '..//../components/BagItem/BagItem'
 
 import styles from './BagList.module.css'
 

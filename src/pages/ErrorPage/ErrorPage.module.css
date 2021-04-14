@@ -1,0 +1,32 @@
+.errorPage {
+    max-width: 1000px;
+    width: 90%;
+    height: 80vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.errorImg {
+    width: 500px;
+}
+
+.errorImg img {
+    width: 100%;
+}
+
+.errorText p {
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.errorText button {
+    font-size: 22px;
+    padding: 10px 50px;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 700;
+    color: var(--blue);
+    border: 2px solid transparent;
+   background-color: var(--yellow);
+}
