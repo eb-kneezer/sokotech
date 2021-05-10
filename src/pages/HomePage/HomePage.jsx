@@ -9,21 +9,17 @@ import styles from './HomePage.module.css'
 
 const HomePage = () => {
     
-    
+    // -------GET PRODUCTS FROM CONTEXT------- \\
+
     const {allProducts} = useContext(MarketContext);
     const [products] = allProducts;
+
+    // -------HOME PAGE STATE => SEARCH AND ACTIVE CATEGORY-------- \\
 
     const [search, setSearch] = useState('')
     const [activeCat, setActiveCat] = useState({category: 'All', count: products.length})
     
-    const filteredProducts = products
-    .filter(product => {
-        if (activeCat.category === 'All'){
-            return product
-        } else {
-            return product.category === activeCat.category}})
-    .filter(product => product.title.toLowerCase().includes(search.toLowerCase()));
-
+    // --------FILTER PRODUCTS INTO CATEGORIES-------- \\
 
     const allCategories = [{category: 'All', count: products.length}];
 
@@ -35,6 +31,18 @@ const HomePage = () => {
             allCategories[index].count += 1;
         }
     })
+    
+    // -------FILTER PRODUCTS TO BE RENDERED BASED ON ACTIVE CATEGORY AND SEARCH VALUE---------
+
+    const filteredProducts = products
+    .filter(product => {
+        if (activeCat.category === 'All'){
+            return product
+        } else {
+            return product.category === activeCat.category}})
+    .filter(product => product.title.toLowerCase().includes(search.toLowerCase()));
+
+
 
 
     return (

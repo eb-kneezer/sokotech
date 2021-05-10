@@ -7,11 +7,14 @@ import styles from './AccountPage.module.css'
 
 const AccountPage = () => {
 
+    // -------GET STATE FROM CONTEXT-------\\
     const {account, order} = useContext(MarketContext)
     const [user] = account;
-    const [orders, setOrders] = order;
+    const [orders] = order;
 
 
+    // ------STATE FOR ACCOUNT PAGE TABS------- \\
+    
     const [activeAcct, setActiveAcct] = useState('order')
 
     return (

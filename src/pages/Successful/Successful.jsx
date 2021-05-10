@@ -7,9 +7,11 @@ import { MarketContext } from '../../context'
 
 export default function Successful() {
 
-const {tab, order} = useContext(MarketContext)
-const [orders, setOrders] = order;
-const [activeTab, setActiveTab] = tab;
+    //-----GET STATE FROM CONTEXT----- \\
+    
+    const {tab, order} = useContext(MarketContext)
+    const [orders] = order;
+    const [ , setActiveTab] = tab;
 
 
     return (

@@ -28,7 +28,6 @@ function App() {
           <Route exact path='/successful' component={Successful} />
           <Route path='/trackorder/:orderID' component={TrackOrder} />
           <Route exact path='/account' component={AccountPage}/>
-
           <Route component={ErrorPage}/>
         </Switch>
         <Footer/>

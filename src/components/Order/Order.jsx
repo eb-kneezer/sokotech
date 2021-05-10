@@ -7,7 +7,7 @@ import styles from './Order.module.css'
 export default function Order({orderId, orderTime, orderItems}) {
 
     const {tab} = useContext(MarketContext)
-    const [activeTab, setActiveTab] = tab;
+    const [, setActiveTab] = tab;
 
     const history = useHistory()
 

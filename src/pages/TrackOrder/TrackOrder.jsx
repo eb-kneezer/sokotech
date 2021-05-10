@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react'
-import {Link, useHistory, useParams} from 'react-router-dom'
+import React, { useContext } from 'react'
+import {Link, useParams} from 'react-router-dom'
 
 import OrderItem from '../../components/OrderItem/OrderItem'
 import { MarketContext } from '../../context'
@@ -8,17 +8,17 @@ import styles from './TrackOrder.module.css'
 
 export default function TrackOrder() {
 
-    const history = useHistory()
-
+    // ------GET STATE FROM CONTEXT ------\\
     const {order} = useContext(MarketContext)
-    const [orders, setOrders] = order;
+    const [orders] = order;
 
-    const{orderID} = useParams()
+    //  -------SELECT PAGE ORDER FROM ORDER LIST BY URL ID ----- \\
 
-
-    
+    const{orderID} = useParams();
     let pageOrder = orders.filter(order => order.orderID === orderID)[0] 
 
+
+    // ------ CASE: ORDER NOT FOUND ------\\
 
     if (!pageOrder) {
         return (
@@ -31,6 +31,8 @@ export default function TrackOrder() {
             )
     }
 
+    // ------ TOTAL ORDER COST AND ORDER COUNT ----- \\
+    
     const orderCost = pageOrder.items.reduce((init, item) => (init + (item.count * item.price)), 0).toFixed(2)
     const orderCount = pageOrder.items.reduce((init, item) => (init + item.count), 0)
     

@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
+
 import AccountDetails from '../../HOC/AccountDetails/AccountDetails'
 import BagList from '../../HOC/BagList/BagList'
 import EmptyBag from '../../components/EmptyBag/EmptyBag'
@@ -10,13 +11,18 @@ import styles from './BagPage.module.css'
 const BagPage = () => {
     // const history = useHistory()
 
-    const {cart, tab} = useContext(MarketContext)
+    // ------GET STATE FROM CONTEXT -------\\
+
+    const {cart, tab} = useContext(MarketContext);
     const [bag] = cart;
-    const [activeTab, setActiveTab] = tab;
+    const [, setActiveTab] = tab;
+
+
+    //-------GET TOTAL BAG PRICE----- \\
 
     const total = bag.reduce((init, item) => {
         return init + (item.price * item.count)
-    }, 0).toFixed(2)
+    }, 0).toFixed(2);
 
 
     // if (history.location.pathname === '/bag')
@@ -34,6 +40,7 @@ const BagPage = () => {
                             <button className={styles.backBtn}>Back to Homepage</button>
                         </Link>
                     </div> :
+                    
                     bag.length > 0 ?
                     <div className={styles.bagPageContainer}>
                         <div className={styles.loginComponent}>

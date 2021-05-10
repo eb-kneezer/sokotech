@@ -14,10 +14,13 @@ export default function AccountDetails() {
     const [orders, setOrders] = order;
     const [bag, setbag] = cart;
 
+    // -----COMPONENT STATE------ \\
+
     const [activeForm, setActiveForm] = useState('phone')
     const [value, setValue] = useState('')
     const [otp, setOtp] = useState('')
     const [otpModal, setOtpModal] = useState(false)
+    const [addressModal, setAddressModal] = useState(false)
     const [address, setAddress] = useState({
         name: '',
         mobile: '',
@@ -25,9 +28,9 @@ export default function AccountDetails() {
         address: ''
     })
     
-    const [addressModal, setAddressModal] = useState(false)
-    
     let selectedAddress = user.deliveryAddress.filter(address => address.mobile === user.selectedAddress);
+
+    // ------ FORM FUNCTIONS ------ \\
 
     const handlePhoneChange = (e) => {
         setValue(e.target.value)
@@ -38,7 +41,6 @@ export default function AccountDetails() {
         if (value) {
             setOtpModal(true);
         }
-        
     }
 
     const handleOtpChange = (e) => {
@@ -58,7 +60,6 @@ export default function AccountDetails() {
 
     const handleSubmitAddress = (e) => {
         e.preventDefault();
-        // addressList.push(address);
 
         setUser({...user, deliveryAddress: [...user.deliveryAddress, address]})
         setAddressModal(false)
@@ -102,7 +103,7 @@ export default function AccountDetails() {
                         <form>
                             <p>Mobile Number</p>
                             <div className={styles.input}>
-                                <input type="tel" onChange={(e) => handlePhoneChange(e)}/>
+                                <input type="tel" value={value} onChange={(e) => handlePhoneChange(e)}/>
                                 <button onClick={(e) => handleSubmitPhone(e)}>Login</button>
                             </div>
                         </form>

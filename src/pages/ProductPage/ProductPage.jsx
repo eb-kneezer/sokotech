@@ -1,4 +1,3 @@
-import { getAllByTestId } from '@testing-library/dom'
 import React, {useContext} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import { MarketContext } from '../../context'
@@ -7,18 +6,26 @@ import styles from './ProductPage.module.css'
 
 const ProductPage = () => {
 
-    const {allProducts, handleAddToBag} = useContext(MarketContext)
-    const [products] = allProducts
-    const {productID} = useParams()
-    const {cart} = useContext(MarketContext);
-    const [bag, setBag] = cart;
+    // ------GET DATA FROM CONTEXT------- \\
 
+    const {allProducts, cart, handleAddToBag} = useContext(MarketContext)
+    const [products] = allProducts
+    const [bag, setBag] = cart;
+    
+    // ------GET PRODUCT FROM URL ID-------- \\
+
+    const {productID} = useParams()
     const pageProduct = products.find(item => item.id === (+productID));
 
-    const truncate = (input) => input.length > 20 ? `${input.substring(0, 40)}...` : input;
+    // -------GET RELATED PRODUCTS-------\\
 
     const relatedProducts = products.filter(product => pageProduct.category === product.category && pageProduct.id !== product.id)
+    
+    // -------TRUNCATE RELATED PRODUCTS DESC.-------\\
+    
+    const truncate = (input) => input.length > 20 ? `${input.substring(0, 40)}...` : input;
 
+    // -------CASE: PRODUCT ID NOT FOUND ---------\\
 
     if (!pageProduct) {
         return (
@@ -29,11 +36,10 @@ const ProductPage = () => {
                 Go Home
                 </Link>
             </div>
-            )
+        )
     }    
 
     const handleCount = (e) => {
-        
         let updatedCount = bag.map(i => {
             if (i.id === pageProduct.id) {
                 if (e.target.id === "increase"){
@@ -41,7 +47,6 @@ const ProductPage = () => {
                 } else {
                     return {...i, count: i.count -= 1}
                 }
-
             }
             return i;
         })
@@ -51,13 +56,11 @@ const ProductPage = () => {
         setBag(filteredCount)
     }
 
-    // console.log(pageProduct)
 
 
     return (
         <div className={styles.productPage}>
             <div className={styles.container}>
-
                 <div className={styles.product}>
                     <div className={styles.productImage}>
                         <img src={products.length > 0?pageProduct.image: ''} alt=""/>
@@ -118,4 +121,4 @@ const ProductPage = () => {
     )
 }
 
-export default ProductPage
+export default ProductPage;
