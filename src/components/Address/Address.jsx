@@ -1,52 +1,39 @@
-import React, { useContext } from 'react'
-import {useHistory} from 'react-router-dom'
-import { MarketContext } from '../../context'
+import React from "react";
+import { useHistory } from "react-router-dom";
 
+import styles from "./Address.module.css";
 
-import styles from './Address.module.css'
+import { useDispatch, useSelector } from "react-redux";
+import { selectAddress } from "../../redux/user/userActions";
 
-export default function Address({name, mobile, city, address}) {
+export default function Address({ name, mobile, city, address }) {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state);
 
-    const page = useHistory()
-    const {account} = useContext(MarketContext)
-    const [user, setUser] = account;
-    
+  const page = useHistory();
 
-    const handleSelectAddress = () => {
+  return (
+    <div
+      onClick={() => dispatch(selectAddress(mobile))}
+      className={`${styles.address} ${
+        user.selectedAddress === mobile ? styles.selected : ""
+      }`}
+    >
+      <span className={styles.check}>
+        <i className="fas fa-check"></i>
+      </span>
+      <h3>{name}</h3>
+      <p>{`${address}, ${city}`}</p>
+      <p className={styles.phone}>{mobile}</p>
 
-        setUser({...user, selectedAddress: mobile})
-
-        // setActiveForm('payment')
-
-        // let listOfAddress = user.deliveryAddress.map(add => {
-        //     if (add.mobile === mobile) {
-        //         return {name, mobile, city, address, selected: !selected}
-        //     } else {
-        //         return add
-        //     }
-        // })
-
-        // console.log(listOfAddress[0].selected)
-
-        // setUser({...user, deliveryAddress: [...listOfAddress]})
-    }
-
-    return (
-        <div 
-        onClick={() => handleSelectAddress()}
-        className={`${styles.address} ${user.selectedAddress === mobile ? styles.selected : ''}`}>
-            <span className={styles.check}><i className="fas fa-check"></i></span>
-            <h3>{name}</h3>
-            <p>{`${address}, ${city}`}</p>
-            <p className={styles.phone}>{mobile}</p>
-
-            {
-                page.location.pathname === '/account' ? 
-                <>
-                <span className={styles.edit}>Edit</span>
-                <span className={styles.delete}>Delete</span>
-                </> : ''
-            }
-        </div>
-    )
+      {page.location.pathname === "/account" ? (
+        <>
+          <span className={styles.edit}>Edit</span>
+          <span className={styles.delete}>Delete</span>
+        </>
+      ) : (
+        ""
+      )}
+    </div>
+  );
 }

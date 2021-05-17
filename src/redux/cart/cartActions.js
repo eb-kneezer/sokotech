@@ -1,0 +1,16 @@
+import actionTypes from "./cartActionTypes";
+
+export const setCart = (cart) => ({
+  type: actionTypes.SET_CART,
+  payload: cart,
+});
+
+export const addToCart = (product) => ({
+  type: actionTypes.ADD_TO_CART,
+  payload: product,
+});
+
+export const removeFromCart = (product) => ({
+  type: actionTypes.REMOVE_FROM_CART,
+  payload: product,
+});
