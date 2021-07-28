@@ -4,28 +4,34 @@ import { Link, useParams } from "react-router-dom";
 import styles from "./ProductPage.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setCart, addToCart } from "../../redux/cart/cartActions";
+import {
+  addToCart,
+  increaseQuantity,
+  removeFromCart,
+  decreaseQuantity,
+} from "../../redux/cart/cartActions";
 
 const ProductPage = () => {
-  // ------GET DATA FROM CONTEXT------- \\
+  // ------GET DATA FROM STORE------- \\
   const dispatch = useDispatch();
-  const { cart, products } = useSelector((state) => state);
+  const { cart, products } = useSelector(state => state);
 
   // ------GET PRODUCT FROM URL ID-------- \\
 
   const { productID } = useParams();
-  const pageProduct = products.find((item) => item.id === +productID);
+  const pageProduct = products.find(item => ({ ...item }.id === +productID));
 
+  const pageProductInCart = cart.find(item => item.id === pageProduct.id);
   // -------GET RELATED PRODUCTS-------\\
 
   const relatedProducts = products.filter(
-    (product) =>
+    product =>
       pageProduct.category === product.category && pageProduct.id !== product.id
   );
 
   // -------TRUNCATE RELATED PRODUCTS DESC.-------\\
 
-  const truncate = (input) =>
+  const truncate = input =>
     input.length > 20 ? `${input.substring(0, 40)}...` : input;
 
   // -------CASE: PRODUCT ID NOT FOUND ---------\\
@@ -35,26 +41,23 @@ const ProductPage = () => {
       <div className={styles.notFound}>
         <h1>Please wait...</h1>
         <p>if this takes too long please go back home</p>
-        <Link to="/">Go Home</Link>
+        <Link to='/'>Go Home</Link>
       </div>
     );
   }
 
-  const handleCount = (e) => {
-    let updatedCount = cart.map((i) => {
-      if (i.id === pageProduct.id) {
-        if (e.target.id === "increase") {
-          return { ...i, count: (i.count += 1) };
-        } else {
-          return { ...i, count: (i.count -= 1) };
-        }
+  const handleCount = e => {
+    if (e.target.id === "decrease") {
+      if (pageProductInCart) {
+        pageProductInCart.count === 1
+          ? dispatch(removeFromCart(pageProduct))
+          : dispatch(decreaseQuantity(pageProductInCart.id));
       }
-      return i;
-    });
-
-    let filteredCount = updatedCount.filter((item) => item.count !== 0);
-
-    dispatch(setCart(filteredCount));
+    } else if (e.target.id === "increase" && pageProductInCart) {
+      dispatch(increaseQuantity(pageProductInCart.id));
+    } else {
+      dispatch(addToCart(pageProduct));
+    }
   };
 
   return (
@@ -62,7 +65,7 @@ const ProductPage = () => {
       <div className={styles.container}>
         <div className={styles.product}>
           <div className={styles.productImage}>
-            <img src={products.length > 0 ? pageProduct.image : ""} alt="" />
+            <img src={products.length > 0 ? pageProduct.image : ""} alt='' />
           </div>
           <div className={styles.productInfo}>
             <div>
@@ -76,18 +79,18 @@ const ProductPage = () => {
                 <p>UGX {products.length > 0 ? pageProduct.price : ""}</p>
                 <div className={styles.amount}>
                   <span
-                    id="decrease"
-                    onClick={(e) => handleCount(e)}
-                    className={styles.change}
-                  >
+                    id='decrease'
+                    onClick={e => handleCount(e)}
+                    className={styles.change}>
                     -
                   </span>
-                  <span>{products.length > 0 ? pageProduct.count : ""}</span>
+                  <span>
+                    {pageProductInCart ? pageProductInCart.count : "1"}
+                  </span>
                   <span
-                    id="increase"
-                    onClick={(e) => handleCount(e)}
-                    className={styles.change}
-                  >
+                    id='increase'
+                    onClick={e => handleCount(e)}
+                    className={styles.change}>
                     +
                   </span>
                 </div>
@@ -97,11 +100,10 @@ const ProductPage = () => {
             <div className={styles.productPageCta}>
               <button
                 onClick={() => dispatch(addToCart(pageProduct))}
-                className={styles.add}
-              >
+                className={styles.add}>
                 Add to Bag
               </button>
-              <Link onClick={() => dispatch(addToCart(pageProduct))} to="/bag">
+              <Link onClick={() => dispatch(addToCart(pageProduct))} to='/bag'>
                 <button className={styles.buy}>Buy Now</button>
               </Link>
             </div>
@@ -111,14 +113,16 @@ const ProductPage = () => {
         <div className={styles.relatedProducts}>
           <p className={styles.relatedHeader}>RELATED PRODUCTS</p>
           <div className={styles.relatedContent}>
-            {relatedProducts.map((item) => (
+            {relatedProducts.map(item => (
               <div className={styles.singleRelated} key={item.id}>
-                <div className={styles.relatedImg}>
-                  <img src={item.image} alt={item.title} />
-                </div>
-                <div className={styles.relatedName}>
-                  <p>{truncate(item.title)}</p>
-                </div>
+                <Link to={`/product/${item.id}`}>
+                  <div className={styles.relatedImg}>
+                    <img src={item.image} alt={item.title} />
+                  </div>
+                  <div className={styles.relatedName}>
+                    <p>{truncate(item.title)}</p>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

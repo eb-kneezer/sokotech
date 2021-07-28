@@ -2,28 +2,24 @@ import React from "react";
 
 import styles from "./BagItem.module.css";
 
-import { useDispatch, useSelector } from "react-redux";
-import { setCart } from "../../redux/cart/cartActions";
+import { useDispatch } from "react-redux";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromCart,
+} from "../../redux/cart/cartActions";
 
 const BagItem = ({ item }) => {
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state);
 
-  const handleCount = (e) => {
-    let updatedCount = cart.map((i) => {
-      if (i.id === item.id) {
-        if (e.target.id === "increase") {
-          return { ...i, count: (i.count += 1) };
-        } else {
-          return { ...i, count: (i.count -= 1) };
-        }
-      }
-      return i;
-    });
-
-    let filteredCount = updatedCount.filter((item) => item.count !== 0);
-
-    dispatch(setCart(filteredCount));
+  const handleCount = e => {
+    if (e.target.id === "decrease") {
+      item.count === 1
+        ? dispatch(removeFromCart(item))
+        : dispatch(decreaseQuantity(item.id));
+    } else {
+      dispatch(increaseQuantity(item.id));
+    }
   };
 
   return (
@@ -32,17 +28,18 @@ const BagItem = ({ item }) => {
       <p className={styles.piece}>Per piece</p>
       <p className={styles.itemPrice}>UGX {item.price}</p>
 
-      {/* <CountIncDec item={item}/> */}
       <div className={styles.amount}>
-        <span id="decrease" onClick={handleCount} className={styles.change}>
+        <span
+          id='decrease'
+          onClick={e => handleCount(e)}
+          className={styles.change}>
           -
         </span>
         <span>{item.count}</span>
         <span
-          id="increase"
-          onClick={(e) => handleCount(e)}
-          className={styles.change}
-        >
+          id='increase'
+          onClick={e => handleCount(e)}
+          className={styles.change}>
           +
         </span>
       </div>

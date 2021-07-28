@@ -10,7 +10,7 @@ import { setCart } from "../../redux/cart/cartActions";
 
 export default function BagList() {
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state);
+  const { cart } = useSelector(state => state);
 
   return (
     <div className={styles.bag}>
@@ -23,12 +23,11 @@ export default function BagList() {
       <div className={styles.bagContainer}>
         <p
           onClick={() => dispatch(setCart([]))}
-          className={`${styles.clear} ${cart.length === 0 ? styles.hide : ""}`}
-        >
+          className={`${styles.clear} ${cart.length === 0 ? styles.hide : ""}`}>
           Clear Bag
         </p>
         {cart.length > 0 ? (
-          cart.map((item) => <BagItem key={item.id} item={item} />)
+          cart.map(item => <BagItem key={item.id} item={item} />)
         ) : cart.length === 0 ? (
           <EmptyBag />
         ) : (

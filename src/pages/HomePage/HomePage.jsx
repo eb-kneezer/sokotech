@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const HomePage = () => {
   // -------GET PRODUCTS FROM CONTEXT------- \\
 
-  const products = useSelector((state) => state.products);
+  const products = useSelector(state => state.products);
 
   // -------HOME PAGE STATE => SEARCH AND ACTIVE CATEGORY-------- \\
 
@@ -24,15 +24,15 @@ const HomePage = () => {
 
   const allCategories = [{ category: "All", count: products.length }];
 
-  products.forEach((product) => {
-    if (!allCategories.some((item) => item.category === product.category)) {
+  products.forEach(product => {
+    if (!allCategories.some(item => item.category === product.category)) {
       allCategories.unshift({
         category: product.category,
         count: product.count,
       });
     } else {
       const index = allCategories.findIndex(
-        (item) => item.category === product.category
+        item => item.category === product.category
       );
       allCategories[index].count += 1;
     }
@@ -43,14 +43,14 @@ const HomePage = () => {
   // -------FILTER PRODUCTS TO BE RENDERED BASED ON ACTIVE CATEGORY AND SEARCH VALUE---------
 
   const filteredProducts = products
-    .filter((product) => {
+    .filter(product => {
       if (activeCat.category === "All") {
         return product;
       } else {
         return product.category === activeCat.category;
       }
     })
-    .filter((product) =>
+    .filter(product =>
       product.title.toLowerCase().includes(search.toLowerCase())
     );
 
@@ -70,13 +70,13 @@ const HomePage = () => {
         <div className={styles.products}>
           <div className={styles.searchProducts}>
             <input
-              placeholder="Search for products..."
-              type="search"
+              placeholder='Search for products...'
+              type='search'
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={e => setSearch(e.target.value)}
             />
             <button>
-              <i className="fas fa-search"></i>
+              <i className='fas fa-search'></i>
             </button>
           </div>
           <div className={styles.productHeader}>
@@ -85,14 +85,8 @@ const HomePage = () => {
           </div>
           <div className={styles.productsContainer}>
             {filteredProducts.length > 0
-              ? filteredProducts.map((product) => (
-                  <Product
-                    key={product.id}
-                    id={product.id}
-                    title={product.title}
-                    image={product.image}
-                    price={product.price}
-                  />
+              ? filteredProducts.map(product => (
+                  <Product key={product.id} product={product} />
                 ))
               : "no products"}
           </div>
