@@ -8,7 +8,7 @@ import { setActiveTab } from "../../redux/activeTab/tabActions";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { cart, activeTab } = useSelector((state) => state);
+  const { cart, activeTab } = useSelector(state => state);
 
   return (
     <div className={styles.header}>
@@ -22,26 +22,24 @@ const Header = () => {
         <div className={styles.container}>
           <div className={styles.storeDetails}>
             <div className={styles.storeIcon}>
-              <i className="fas fa-store"></i>
+              <i className='fas fa-store'></i>
             </div>
             <div className={styles.storeDescription}>
               <h2 className={styles.storeName}>Target</h2>
-              <p>Cham Towers, Plot 12 Nkruma Rd, Kampala. Ug</p>
+              <p>Cham Towers, Plot 12 Lekki Rd, Lagos. Ng</p>
             </div>
           </div>
           <div className={styles.storeBagAccount}>
-            <Link onClick={() => dispatch(setActiveTab("bag"))} to="/bag">
+            <Link onClick={() => dispatch(setActiveTab("bag"))} to='/bag'>
               <button
                 className={`${styles.storeBag} ${
                   activeTab === "bag" ? styles.active : ""
-                }`}
-              >
-                <i className="fas fa-shopping-bag"></i>
+                }`}>
+                <i className='fas fa-shopping-bag'></i>
                 <span
                   className={`${styles.popup} ${
                     cart.length === 0 ? styles.hidden : ""
-                  }`}
-                >
+                  }`}>
                   {cart.reduce((init, item) => init + item.count, 0)}
                 </span>
                 Bag
@@ -50,14 +48,12 @@ const Header = () => {
 
             <Link
               onClick={() => dispatch(setActiveTab("account"))}
-              to="/account"
-            >
+              to='/account'>
               <button
                 className={`${styles.storeAccount} ${
                   activeTab === "account" ? styles.active : ""
-                }`}
-              >
-                <i className="fas fa-user"></i>
+                }`}>
+                <i className='fas fa-user'></i>
                 Account
               </button>
             </Link>

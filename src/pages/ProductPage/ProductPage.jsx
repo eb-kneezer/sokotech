@@ -76,7 +76,7 @@ const ProductPage = () => {
                 {products.length > 0 ? pageProduct.description : ""}
               </p>
               <div className={styles.productPrice}>
-                <p>UGX {products.length > 0 ? pageProduct.price : ""}</p>
+                <p>NGN {products.length > 0 ? pageProduct.price : ""}</p>
                 <div className={styles.amount}>
                   <span
                     id='decrease'

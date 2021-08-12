@@ -16,7 +16,7 @@ const BagPage = () => {
   // ------GET STATE FROM CONTEXT -------\\
 
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state);
+  const { cart } = useSelector(state => state);
 
   //-------GET TOTAL BAG PRICE----- \\
 
@@ -34,7 +34,7 @@ const BagPage = () => {
       {cart.length === 0 ? (
         <div className={styles.empty}>
           <EmptyBag />
-          <Link onClick={() => dispatch(setActiveTab(""))} to="./">
+          <Link onClick={() => dispatch(setActiveTab(""))} to='./'>
             <button className={styles.backBtn}>Back to Homepage</button>
           </Link>
         </div>
@@ -47,7 +47,7 @@ const BagPage = () => {
             <BagList />
             <div className={styles.totalCost}>
               <p>
-                Subtotal <span className={styles.right}>UGX {total}</span>
+                Subtotal <span className={styles.right}>NGN {total}</span>
               </p>
               <p className={styles.delivery}>
                 Delivery{" "}
@@ -55,12 +55,12 @@ const BagPage = () => {
               </p>
               <hr />
               <p className={styles.total}>
-                Total <span className={styles.right}>UGX {total}</span>
+                Total <span className={styles.right}>NGN {total}</span>
               </p>
               <p className={styles.taxes}>Inclusive of all taxes</p>
               <hr />
               <p className={styles.green}>
-                You are about to save UGX 27,000 on this order
+                You are about to save NGN 2,000 on this order
               </p>
             </div>
           </div>

@@ -12,12 +12,12 @@ export default function TrackOrder() {
   // ------GET STATE FROM CONTEXT ------\\
   const {
     user: { orders },
-  } = useSelector((state) => state);
+  } = useSelector(state => state);
 
   //  -------SELECT PAGE ORDER FROM ORDER LIST BY URL ID ----- \\
 
   const { orderID } = useParams();
-  let pageOrder = orders.filter((order) => order.orderID === orderID)[0];
+  let pageOrder = orders.filter(order => order.orderID === orderID)[0];
 
   // ------ CASE: ORDER NOT FOUND ------\\
 
@@ -25,7 +25,7 @@ export default function TrackOrder() {
     return (
       <div className={styles.notFound}>
         <h1>404 - Order Not Found!</h1>
-        <Link to="/">Go Home</Link>
+        <Link to='/'>Go Home</Link>
       </div>
     );
   }
@@ -44,20 +44,20 @@ export default function TrackOrder() {
     <div className={styles.trackorder}>
       <div className={styles.orderDetails}>
         <div className={styles.icon}>
-          <i className="fas fa-store"></i>
+          <i className='fas fa-store'></i>
         </div>
         <div className={styles.text}>
           <h4 className={styles.orderStore}>Target</h4>
           <p>{`${pageOrder.orderTime} | 
                     ${orderCount} items | 
-                    UGX ${orderCost}`}</p>
+                    NGN ${orderCost}`}</p>
         </div>
       </div>
 
       <div className={styles.orderStatus}>
         <div className={styles.status}>
           <div className={`${styles.icon} ${styles.check}`}>
-            <i className="fas fa-check"></i>
+            <i className='fas fa-check'></i>
           </div>
           <div className={styles.text}>
             <h4>Order Confirmed</h4>
@@ -67,7 +67,7 @@ export default function TrackOrder() {
 
         <div className={styles.status}>
           <div className={styles.icon}>
-            <i className="fas fa-check"></i>
+            <i className='fas fa-check'></i>
           </div>
           <div className={styles.text}>
             <h4>Shipped</h4>
@@ -77,7 +77,7 @@ export default function TrackOrder() {
 
         <div className={styles.status}>
           <div className={styles.icon}>
-            <i className="fas fa-check"></i>
+            <i className='fas fa-check'></i>
           </div>
           <div className={styles.text}>
             <h4>Delivered</h4>
@@ -89,7 +89,7 @@ export default function TrackOrder() {
       <div className={styles.orderItems}>
         <p>{`${orderCount} ITEMS`}</p>
         <div className={styles.orderItemsList}>
-          {pageOrder.items.map((item) => (
+          {pageOrder.items.map(item => (
             <OrderItem
               key={item.id}
               count={item.count}

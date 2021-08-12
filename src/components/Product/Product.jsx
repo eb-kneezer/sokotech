@@ -26,7 +26,7 @@ const Product = ({ product }) => {
       </div>
       <div className={styles.productDetails}>
         <p className={styles.productName}>{title}</p>
-        <p className={styles.productPrice}>{`UGX ${price}`}</p>
+        <p className={styles.productPrice}>{`NGN ${price}`}</p>
         <button
           id='add'
           onClick={() => dispatch(addToCart(product))}
