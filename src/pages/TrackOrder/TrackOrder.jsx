@@ -7,6 +7,7 @@ import OrderItem from "../../components/OrderItem/OrderItem";
 import styles from "./TrackOrder.module.css";
 
 import { useSelector } from "react-redux";
+import { addComma } from "../../App";
 
 export default function TrackOrder() {
   // ------GET STATE FROM CONTEXT ------\\
@@ -50,7 +51,7 @@ export default function TrackOrder() {
           <h4 className={styles.orderStore}>Target</h4>
           <p>{`${pageOrder.orderTime} | 
                     ${orderCount} items | 
-                    NGN ${orderCost}`}</p>
+                    NGN ${addComma(orderCost)}`}</p>
         </div>
       </div>
 
@@ -103,7 +104,8 @@ export default function TrackOrder() {
 
       <div className={styles.orderPricing}>
         <p>
-          Subtotal <span className={styles.right}>{`UGX ${orderCost}`}</span>
+          Subtotal{" "}
+          <span className={styles.right}>{`UGX ${addComma(orderCost)}`}</span>
         </p>
         <p className={styles.delivery}>
           Delivery{" "}
@@ -111,12 +113,13 @@ export default function TrackOrder() {
         </p>
         <hr />
         <p className={styles.total}>
-          Total <span className={styles.right}>{`UGX ${orderCost}`}</span>
+          Total{" "}
+          <span className={styles.right}>{`NGN ${addComma(orderCost)}`}</span>
         </p>
         <p className={styles.taxes}>Inclusive of all taxes</p>
         <hr />
         <p className={styles.green}>
-          You are about to save UGX 27,000 on this order
+          You are about to save NGN 2,000 on this order
         </p>
       </div>
 

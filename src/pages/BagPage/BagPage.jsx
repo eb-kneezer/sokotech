@@ -9,6 +9,7 @@ import styles from "./BagPage.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveTab } from "../../redux/activeTab/tabActions";
+import { addComma } from "../../App";
 
 const BagPage = () => {
   // const history = useHistory()
@@ -47,7 +48,8 @@ const BagPage = () => {
             <BagList />
             <div className={styles.totalCost}>
               <p>
-                Subtotal <span className={styles.right}>NGN {total}</span>
+                Subtotal{" "}
+                <span className={styles.right}>NGN {addComma(total)}</span>
               </p>
               <p className={styles.delivery}>
                 Delivery{" "}
@@ -55,7 +57,8 @@ const BagPage = () => {
               </p>
               <hr />
               <p className={styles.total}>
-                Total <span className={styles.right}>NGN {total}</span>
+                Total{" "}
+                <span className={styles.right}>NGN {addComma(total)}</span>
               </p>
               <p className={styles.taxes}>Inclusive of all taxes</p>
               <hr />

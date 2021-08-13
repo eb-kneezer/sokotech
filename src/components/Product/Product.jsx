@@ -5,6 +5,7 @@ import styles from "./Product.module.css";
 
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cart/cartActions";
+import { addComma } from "../../App";
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Product = ({ product }) => {
       </div>
       <div className={styles.productDetails}>
         <p className={styles.productName}>{title}</p>
-        <p className={styles.productPrice}>{`NGN ${price}`}</p>
+        <p className={styles.productPrice}>{`NGN ${addComma(price)}`}</p>
         <button
           id='add'
           onClick={() => dispatch(addToCart(product))}

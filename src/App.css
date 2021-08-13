@@ -1,25 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 body {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* transition: all 0.25s; */
-    font-family: 'Exo 2', sans-serif;
-    /* color: rgba(168,168,168,155); */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* transition: all 0.25s; */
+  font-family: "Exo 2", sans-serif;
+  /* color: rgba(168,168,168,155); */
 }
 
 /* rgba(39,102,204,255) */
 :root {
-    --blue: rgba(39,102,204,255);
-    --yellow: rgba(248,222,75,255);
+  --blue: rgba(39, 102, 204, 255);
+  --yellow: rgba(248, 222, 75, 255);
 }
 
-
-h1, h2, h3 {
-    color: rgba(39,39,39,118);
+h1,
+h2,
+h3 {
+  color: rgba(39, 39, 39, 118);
 }

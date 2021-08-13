@@ -8,6 +8,7 @@ import {
   increaseQuantity,
   removeFromCart,
 } from "../../redux/cart/cartActions";
+import { addComma } from "../../App";
 
 const BagItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const BagItem = ({ item }) => {
     <div className={styles.bagItem}>
       <p className={styles.itemName}>{item.title}</p>
       <p className={styles.piece}>Per piece</p>
-      <p className={styles.itemPrice}>NGN {item.price}</p>
+      <p className={styles.itemPrice}>NGN {addComma(item.price)}</p>
 
       <div className={styles.amount}>
         <span

@@ -1,4 +1,5 @@
 import React from "react";
+import { addComma } from "../../App";
 
 import styles from "./OrderItem.module.css";
 
@@ -13,7 +14,7 @@ export default function OrderItem({ count, title, image, price }) {
           <p className={styles.itemName}>{title}</p>
         </div>
         <span className={styles.itemCount}>{`X${count}`}</span>
-        <span className={styles.itemPrice}>{`NGN ${price}`}</span>
+        <span className={styles.itemPrice}>{`NGN ${addComma(price)}`}</span>
       </div>
     </div>
   );

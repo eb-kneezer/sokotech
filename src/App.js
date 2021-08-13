@@ -16,6 +16,10 @@ import "./App.css";
 import { getProducts } from "./redux/products/productActions";
 import { useDispatch } from "react-redux";
 
+export function addComma(num) {
+  return parseInt(num).toLocaleString();
+}
+
 function App() {
   const dispatch = useDispatch();
 

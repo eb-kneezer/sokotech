@@ -1,94 +1,94 @@
 .bagPage {
-    /* height: 80vh; */
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 60vh;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bagPageContainer {
-    width: 100%;
-    display: flex;
-    align-self: flex-start;
+  width: 100%;
+  display: flex;
+  align-self: flex-start;
 }
 
 .empty {
-    width: 600px;
-    margin: 100px;
-    text-align: center;
+  width: 600px;
+  margin: 100px;
+  text-align: center;
 }
 
 .loginComponent {
-    flex: 2;
-    border-right: 1px solid rgb(220, 220, 220);
+  flex: 2;
+  border-right: 1px solid rgb(220, 220, 220);
 }
 .bagItems {
-    flex: 1;
-    margin: 50px 0 30px 30px;
+  flex: 1;
+  margin: 50px 0 30px 30px;
 }
 
 .backBtn {
-    margin-top: 40px;
-    padding: 10px 60px;
-    background-color: var(--yellow);
-    color: var(--blue);
-    font-weight: bold;
-    outline: none;
-    border-radius: 5px;
-    border: 2px solid transparent;
+  margin-top: 40px;
+  padding: 10px 60px;
+  background-color: var(--yellow);
+  color: var(--blue);
+  font-weight: bold;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid transparent;
 }
 
 .totalCost {
-    width: 100%;
-    border-top: 1px solid rgb(182, 182, 182);
-    padding: 30px 0;
+  width: 100%;
+  border-top: 1px solid rgb(182, 182, 182);
+  padding: 30px 0;
 }
 
 .total {
-    color: black;
-    font-weight: 700;
-    margin-bottom: 10px;
+  color: black;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 .delivery {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 hr {
-    border: none;
-    border-bottom: 1px dashed rgb(182, 182, 182);
-    margin: 20px 0;
+  border: none;
+  border-bottom: 1px dashed rgb(182, 182, 182);
+  margin: 20px 0;
 }
 p.taxes {
-    font-size: 12px;
-    font-style: italic;
-    color: rgb(165, 165, 165);
+  font-size: 12px;
+  font-style: italic;
+  color: rgb(165, 165, 165);
 }
-.green { 
-    color: rgb(0, 184, 0);
-    font-weight: 600;
+.green {
+  color: rgb(0, 184, 0);
+  font-weight: 600;
 }
 p.green {
-    font-size: 12px;
+  font-size: 12px;
 }
 .right {
-    float: right;
+  float: right;
 }
 
 @media screen and (max-width: 1100px) {
-    .loginComponent {
-        /* flex: 1; */
-        width: 50%;
-    }
+  .loginComponent {
+    /* flex: 1; */
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .bagPageContainer {
-        flex-direction: column;
-    }
-    .loginComponent {
-        /* flex: 1; */
-        width: 100%;
-        border-right: none;
-    }
+  .bagPageContainer {
+    flex-direction: column;
+  }
+  .loginComponent {
+    /* flex: 1; */
+    width: 100%;
+    border-right: none;
+  }
 }

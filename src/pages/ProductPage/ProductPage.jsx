@@ -10,6 +10,7 @@ import {
   removeFromCart,
   decreaseQuantity,
 } from "../../redux/cart/cartActions";
+import { addComma } from "../../App";
 
 const ProductPage = () => {
   // ------GET DATA FROM STORE------- \\
@@ -76,7 +77,9 @@ const ProductPage = () => {
                 {products.length > 0 ? pageProduct.description : ""}
               </p>
               <div className={styles.productPrice}>
-                <p>NGN {products.length > 0 ? pageProduct.price : ""}</p>
+                <p>
+                  NGN {products.length > 0 ? addComma(pageProduct.price) : ""}
+                </p>
                 <div className={styles.amount}>
                   <span
                     id='decrease'
@@ -115,7 +118,9 @@ const ProductPage = () => {
           <div className={styles.relatedContent}>
             {relatedProducts.map(item => (
               <div className={styles.singleRelated} key={item.id}>
-                <Link to={`/product/${item.id}`}>
+                <Link
+                  to={`/product/${item.id}`}
+                  style={{ textDecoration: "none" }}>
                   <div className={styles.relatedImg}>
                     <img src={item.image} alt={item.title} />
                   </div>

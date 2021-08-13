@@ -1,146 +1,161 @@
 .notFound {
-    height: 80vh;
-    width: 30%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+  height: 80vh;
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .product {
-    margin: 30px 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .productImage {
-    height: 350px;
-    width: 400px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    /* background-color: cadetblue; */
+  height: 350px;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  /* background-color: cadetblue; */
 }
 
 img {
-    background-size: contain;
-    height: 100%;
+  background-size: contain;
+  height: 100%;
 }
 
 .productInfo {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 400px;
-    height: 350px;
-    padding: 30px 0;
-    margin-left: 30px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 350px;
+  padding: 30px 0;
+  margin-left: 30px;
 }
 
-.productDescription{
-    margin-top: 10px;
-    font-size: 16px;
+.productDescription {
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 .productPrice p {
-    margin: 30px 0 20px 0;
-    font-size: 20px;
+  margin: 30px 0 20px 0;
+  font-size: 20px;
 }
 
 .amount {
-    border: 1px solid rgba(39,102,204,255);
-    border-radius: 3px;
-    display: inline-block;
-    overflow: hidden;
+  border: 1px solid rgba(39, 102, 204, 255);
+  border-radius: 3px;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .amount span {
-    text-align: center;
-    display: inline-block;
-    height: 100%;
-    width: 25px;
-    font-size: 18px;
-
+  text-align: center;
+  display: inline-block;
+  height: 100%;
+  width: 25px;
+  font-size: 18px;
 }
 
 span.change {
-    background-color: rgba(39,102,204,0.3);
-    cursor: pointer;
+  background-color: rgba(39, 102, 204, 0.3);
+  cursor: pointer;
 }
 
 .productPageCta button {
-    padding: 10px 60px;
-    color: var(--blue);
-    font-weight: 700;
-    font-size: 16px;
-    outline: none;
-    border-radius: 5px;
+  padding: 10px 60px;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 16px;
+  outline: none;
+  border-radius: 5px;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 button > * {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .add {
-    background-color: #fff;
-    border: 2px solid var(--blue);
-    margin-right: 20px;
+  background-color: #fff;
+  border: 2px solid var(--blue);
+  margin-right: 20px;
 }
 .buy {
-    border: 2px solid transparent;
-    background-color: var(--yellow);
+  border: 2px solid transparent;
+  background-color: var(--yellow);
 }
-
 
 .relatedProducts {
-    margin-top: 80px;
+  margin-top: 80px;
 }
 .relatedHeader {
-    font-size: 18px;
-    color: grey;
+  font-size: 18px;
+  color: grey;
 }
 .relatedContent {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 15px;
-    padding: 15px 0;
-    border-top: 1px solid rgb(220, 220, 220);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+  padding: 15px 0;
+  border-top: 1px solid rgb(220, 220, 220);
 }
 
 .singleRelated {
-    display: flex;
-    flex-direction: column;
-    width: 180px;
-    height: 250px;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 250px;
+  position: relative;
+}
+
+.singleRelated:hover::before {
+  content: " ";
+  width: 5px;
+  height: 50%;
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(39, 102, 204, 255);
 }
 
 .relatedImg {
-    width: 100%;
-    height: 190px;
-    border-radius: 10px;
-    text-align: center;
+  width: 100%;
+  height: 190px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .relatedImg img {
-    height: 100%;
+  height: 100%;
 }
 
 .relatedName {
-    flex-grow: 1;
-    padding: 10px;
-    font-weight: 500;
+  flex-grow: 1;
+  padding: 10px;
+  font-weight: 500;
+  color: black;
 }
+
+/* .relatedName p {
+  text-decoration: none;
+  color: black;
+} */

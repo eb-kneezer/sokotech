@@ -5,6 +5,7 @@ import styles from "./Order.module.css";
 
 import { useDispatch } from "react-redux";
 import { setActiveTab } from "../../redux/activeTab/tabActions";
+import { addComma } from "../../App";
 
 export default function Order({ orderId, orderTime, orderItems }) {
   const dispatch = useDispatch();
@@ -34,7 +35,9 @@ export default function Order({ orderId, orderTime, orderItems }) {
       <div className={styles.orderDetails}>
         <p className={styles.orderNum}>
           {`Order #${orderId}`}
-          <span className={styles.detailsRight}>{`NGN ${orderCost}`}</span>
+          <span className={styles.detailsRight}>{`NGN ${addComma(
+            orderCost
+          )}`}</span>
         </p>
         <p>
           {`${totalItems} item(s)`}
