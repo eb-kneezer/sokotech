@@ -1,24 +1,24 @@
 .order {
-    padding: 20px;
-    border: 1px solid rgb(220, 220, 220);
-    border-radius: 5px;
-    width: 45%;
-    cursor: pointer;
-    /* flex-grow: 1; */
+  padding: 20px;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 5px;
+  min-width: 250px;
+  cursor: pointer;
+  /* flex-grow: 1; */
 }
 
 .order > * {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .orderDetails {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .orderNum {
-    font-weight: 600;
-    margin-bottom: 10px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 .detailsRight {
-    float: right;
+  float: right;
 }

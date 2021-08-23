@@ -27,11 +27,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 7px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 img {
-  max-width: 100%;
+  width: 90px;
 }
 
 .productDetails {

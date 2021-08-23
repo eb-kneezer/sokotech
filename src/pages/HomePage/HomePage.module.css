@@ -76,7 +76,7 @@
 
 .productsCategory {
   flex: 1;
-  margin-top: 25px;
+  padding-top: 25px;
 }
 
 .bagListContainer {
@@ -87,5 +87,19 @@
 @media screen and (max-width: 800px) {
   .bagListContainer {
     display: none;
+  }
+  .productsCategory {
+    border-left: 1px solid rgb(220, 220, 220);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .productsCategory {
+    display: none;
+  }
+  .products {
+    padding-left: 0px;
+    padding-right: 0px;
+    border: none;
   }
 }

@@ -1,5 +1,5 @@
 .bagPage {
-  height: 60vh;
+  min-height: 60vh;
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
@@ -84,7 +84,10 @@ p.green {
 
 @media screen and (max-width: 800px) {
   .bagPageContainer {
-    flex-direction: column;
+    flex-direction: column-reverse;
+  }
+  .bagItems {
+    margin-left: 0px;
   }
   .loginComponent {
     /* flex: 1; */

@@ -8,19 +8,18 @@ import { selectAddress } from "../../redux/user/userActions";
 
 export default function Address({ name, mobile, city, address }) {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state);
+  const { user } = useSelector(state => state);
 
   const page = useHistory();
 
   return (
     <div
-      onClick={() => dispatch(selectAddress(mobile))}
+      onClick={() => dispatch(selectAddress(address))}
       className={`${styles.address} ${
-        user.selectedAddress === mobile ? styles.selected : ""
-      }`}
-    >
+        user.selectedAddress === address ? styles.selected : ""
+      }`}>
       <span className={styles.check}>
-        <i className="fas fa-check"></i>
+        <i className='fas fa-check'></i>
       </span>
       <h3>{name}</h3>
       <p>{`${address}, ${city}`}</p>

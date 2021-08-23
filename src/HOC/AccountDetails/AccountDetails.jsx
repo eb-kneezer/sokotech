@@ -22,7 +22,7 @@ export default function AccountDetails() {
       selectedAddress,
       paymentMethod,
     },
-  } = useSelector((state) => state);
+  } = useSelector(state => state);
 
   // -----COMPONENT STATE------ \\
 
@@ -39,23 +39,23 @@ export default function AccountDetails() {
   });
 
   let selectAddress = deliveryAddresses.filter(
-    (address) => address.mobile === selectedAddress
+    address => address.address === selectedAddress
   );
 
   // ------ FORM FUNCTIONS ------ \\
 
-  const handlePhoneChange = (e) => {
+  const handlePhoneChange = e => {
     setValue(e.target.value);
   };
 
-  const handleSubmitPhone = (e) => {
+  const handleSubmitPhone = e => {
     e.preventDefault();
     if (value) {
       setOtpModal(true);
     }
   };
 
-  const handleOtpChange = (e) => {
+  const handleOtpChange = e => {
     setOtp(e);
 
     if (e.length === 4) {
@@ -65,12 +65,12 @@ export default function AccountDetails() {
     }
   };
 
-  const handleAddressChange = (e) => {
+  const handleAddressChange = e => {
     let name = e.target.name;
     setAddress({ ...address, [name]: e.target.value });
   };
 
-  const handleSubmitAddress = (e) => {
+  const handleSubmitAddress = e => {
     e.preventDefault();
 
     dispatch(addAddress(address));
@@ -105,16 +105,14 @@ export default function AccountDetails() {
                     : account
                     ? styles.finishedForm
                     : ""
-                }`}
-        >
+                }`}>
           <span className={styles.numbering}>
-            {!account ? "1" : <i className="fas fa-check"></i>}
+            {!account ? "1" : <i className='fas fa-check'></i>}
           </span>
           <div className={styles.label}>
             <h2
               onClick={() => setActiveForm("phone")}
-              className={styles.labelHeader}
-            >
+              className={styles.labelHeader}>
               Account
             </h2>
             <p className={styles.labelDesc}>
@@ -128,11 +126,11 @@ export default function AccountDetails() {
               <p>Mobile Number</p>
               <div className={styles.input}>
                 <input
-                  type="tel"
+                  type='tel'
                   value={value}
-                  onChange={(e) => handlePhoneChange(e)}
+                  onChange={e => handlePhoneChange(e)}
                 />
-                <button onClick={(e) => handleSubmitPhone(e)}>Login</button>
+                <button onClick={e => handleSubmitPhone(e)}>Login</button>
               </div>
             </form>
           </div>
@@ -146,34 +144,34 @@ export default function AccountDetails() {
                     : selectedAddress !== ""
                     ? styles.finishedForm
                     : ""
-                }`}
-        >
+                }`}>
           <span className={styles.numbering}>
-            {selectedAddress === "" ? "2" : <i className="fas fa-check"></i>}
+            {selectedAddress === "" ? "2" : <i className='fas fa-check'></i>}
           </span>
           <div className={styles.label}>
-            <h2
-              onClick={() => setActiveForm("address")}
-              className={styles.labelHeader}
-            >
-              Delivery address
-            </h2>
-            <p className={styles.labelDesc}>
-              select your delivery address from the existing one or add a new
-              one
-            </p>
-            {selectedAddress !== "" ? (
+            <div className={styles.addressLabel}>
+              <h2
+                onClick={() => setActiveForm("address")}
+                className={styles.labelHeader}>
+                Delivery address
+              </h2>
+              <p className={styles.labelDesc}>
+                select your delivery address from the existing one or add a new
+                one
+              </p>
+            </div>
+            {selectedAddress !== "" && activeForm !== "address" ? (
               <>
                 <button
                   onClick={() => setActiveForm("address")}
-                  className={styles.changeAddress}
-                >
+                  className={styles.changeAddress}>
                   Change Address
                 </button>
                 <p className={styles.selectedName}>{selectAddress[0].name}</p>
                 <p
-                  className={styles.selectedDetails}
-                >{`${selectAddress[0].address} ${selectAddress[0].city}: ${selectAddress[0].mobile}`}</p>
+                  className={
+                    styles.selectedDetails
+                  }>{`${selectAddress[0].address} ${selectAddress[0].city}: ${selectAddress[0].mobile}`}</p>
               </>
             ) : (
               ""
@@ -182,7 +180,7 @@ export default function AccountDetails() {
           <div className={`${styles.content}`}>
             {
               // loop through addresses, add last box to add extra
-              deliveryAddresses.map((address) => (
+              deliveryAddresses.map(address => (
                 <Address
                   key={address.mobile}
                   name={address.name}
@@ -194,10 +192,9 @@ export default function AccountDetails() {
             }
             <div
               onClick={() => setAddressModal(true)}
-              className={styles.emptyAddress}
-            >
+              className={styles.emptyAddress}>
               <p>
-                <i className="fas fa-plus"></i>Add New Address
+                <i className='fas fa-plus'></i>Add New Address
               </p>
             </div>
           </div>
@@ -205,22 +202,20 @@ export default function AccountDetails() {
 
         <div
           className={`${styles.form} ${styles.payment}  
-                ${activeForm === "payment" ? styles.activeForm : ""}`}
-        >
+                ${activeForm === "payment" ? styles.activeForm : ""}`}>
           <span className={styles.numbering}>3</span>
           <div className={styles.label}>
             <h2
               onClick={() => setActiveForm("payment")}
-              className={styles.labelHeader}
-            >
+              className={styles.labelHeader}>
               Payment
             </h2>
             <p className={styles.labelDesc}>Select your payment method</p>
           </div>
           <div className={`${styles.content}`}>
             <form>
-              <input type="radio" id="delivery" name="payment" value="cash" />
-              <label htmlFor="delivery">Cash on delivery</label>
+              <input type='radio' id='delivery' name='payment' value='cash' />
+              <label htmlFor='delivery'>Cash on delivery</label>
             </form>
             <button onClick={() => handlePlaceOrder()} className={styles.order}>
               Place Order
@@ -234,22 +229,20 @@ export default function AccountDetails() {
       <div
         className={`${styles.verifyModalWrapper} ${
           otpModal ? styles.activate : ""
-        }`}
-      >
+        }`}>
         <div className={styles.modal}>
           <div className={styles.modalHeader}>
             <h3>Verify your number</h3>
             <i
               onClick={() => setAddressModal(false)}
-              className="fas fa-times"
-            ></i>
+              className='fas fa-times'></i>
           </div>
           <div className={styles.verifyContent}>
             <p>Please enter verification code sent via SMS to {value}</p>
             <OtpInput
               value={otp}
-              onChange={(e) => handleOtpChange(e)}
-              placeholder="0000"
+              onChange={e => handleOtpChange(e)}
+              placeholder='0000'
               numInputs={4}
               isInputNum={true}
               shouldAutoFocus={true}
@@ -264,15 +257,13 @@ export default function AccountDetails() {
       <div
         className={`${styles.addressModalWrapper} ${
           addressModal ? styles.activate : ""
-        }`}
-      >
+        }`}>
         <div className={styles.modal}>
           <div className={styles.modalHeader}>
             <h3>Add Address</h3>
             <i
               onClick={() => setAddressModal(false)}
-              className="fas fa-times"
-            ></i>
+              className='fas fa-times'></i>
           </div>
           <div className={styles.addAddressContent}>
             <form>
@@ -280,10 +271,10 @@ export default function AccountDetails() {
               <div className={styles.input}>
                 <input
                   required
-                  type="text"
-                  name="name"
+                  type='text'
+                  name='name'
                   value={address.name}
-                  onChange={(e) => handleAddressChange(e)}
+                  onChange={e => handleAddressChange(e)}
                 />
               </div>
 
@@ -291,10 +282,10 @@ export default function AccountDetails() {
               <div className={styles.input}>
                 <input
                   required
-                  type="tel"
-                  name="mobile"
+                  type='tel'
+                  name='mobile'
                   value={address.mobile}
-                  onChange={(e) => handleAddressChange(e)}
+                  onChange={e => handleAddressChange(e)}
                 />
               </div>
 
@@ -302,26 +293,24 @@ export default function AccountDetails() {
               <div className={styles.input}>
                 <input
                   required
-                  type="text"
-                  name="city"
+                  type='text'
+                  name='city'
                   value={address.city}
-                  onChange={(e) => handleAddressChange(e)}
+                  onChange={e => handleAddressChange(e)}
                 />
               </div>
 
               <p>Address</p>
               <textarea
                 required
-                name="address"
+                name='address'
                 value={address.address}
-                onChange={(e) => handleAddressChange(e)}
-                cols="30"
-                rows="5"
-                placeholder="eg. Kalema Apartments, Plot 00 Johnson Rd, Room 24B"
+                onChange={e => handleAddressChange(e)}
+                cols='30'
+                rows='5'
+                placeholder='eg. Kalema Apartments, Plot 00 Johnson Rd, Room 24B'
               />
-              <button onClick={(e) => handleSubmitAddress(e)}>
-                Add Address
-              </button>
+              <button onClick={e => handleSubmitAddress(e)}>Add Address</button>
             </form>
           </div>
         </div>

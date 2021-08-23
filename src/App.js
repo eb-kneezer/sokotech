@@ -15,6 +15,7 @@ import "./App.css";
 
 import { getProducts } from "./redux/products/productActions";
 import { useDispatch } from "react-redux";
+import MobileNav from "./components/MobileNav/MobileNav";
 
 export function addComma(num) {
   return parseInt(num).toLocaleString();
@@ -45,6 +46,7 @@ function App() {
         <Route exact path='/account' component={AccountPage} />
         <Route component={ErrorPage} />
       </Switch>
+      <MobileNav />
       <Footer />
     </div>
   );

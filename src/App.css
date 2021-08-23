@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1px solid red; */
   /* transition: all 0.25s; */
   font-family: "Exo 2", sans-serif;
   /* color: rgba(168,168,168,155); */
@@ -24,3 +25,7 @@ h2,
 h3 {
   color: rgba(39, 39, 39, 118);
 }
+
+/* img {
+  width: 100%;
+} */

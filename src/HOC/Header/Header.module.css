@@ -1,103 +1,106 @@
 .header {
-    width: 100%;
+  width: 100%;
 }
 .madeWith {
-    background-color: rgba(39,102,204,255);
-    color: #fff;
+  background-color: rgba(39, 102, 204, 255);
+  color: #fff;
 }
 
 .container {
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
 }
 
-
 .withsoko {
-    padding: 15px 0;
+  padding: 15px 0;
 }
 
 .store {
-    padding: 20px;
-    border-bottom: 1px solid rgb(220, 220, 220);
-    position: relative;
+  padding: 30px 20px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+  position: relative;
 }
 
-
-
 .store .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .storeDetails {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .storeIcon {
-    height: 70px;
-    width: 70px;
-    margin-right: 20px;
-    border-radius: 50%;
-    background-color: rgba(218, 218, 218, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 70px;
+  width: 70px;
+  margin-right: 20px;
+  border-radius: 50%;
+  background-color: rgba(218, 218, 218, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .storeIcon i {
-    font-size: 28px;
-    color: rgb(180, 180, 180);
+  font-size: 28px;
+  color: rgb(180, 180, 180);
 }
 
 .storeName {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .storeDescription p {
-    color: rgb(100, 100, 100);
-    font-weight: 500;
+  color: rgb(100, 100, 100);
+  font-weight: 500;
 }
 
 .storeBagAccount {
-    display: flex;
+  display: flex;
 }
 
 .storeBagAccount button {
-    font-size: 18px;
-    color: rgb(180, 180, 180);
-    outline: none;
-    border: none;
-    background-color: #fff;
-    margin-left: 20px;
-    padding: 7px 15px;
-    border-radius: 20px;
+  font-size: 18px;
+  color: rgb(180, 180, 180);
+  outline: none;
+  border: none;
+  background-color: #fff;
+  margin-left: 20px;
+  padding: 7px 15px;
+  border-radius: 20px;
 }
 .storeBagAccount button:hover,
 .storeBagAccount button.active {
-    color: var(--blue);
-    background-color: rgba(39,102,204, 0.1);
+  color: var(--blue);
+  background-color: rgba(39, 102, 204, 0.1);
 }
 
 .storeBagAccount i {
-    font-size: 20px;
-    margin-right: 20px;
+  font-size: 20px;
+  margin-right: 20px;
 }
 
 .storeBag {
-    position: relative;
+  position: relative;
 }
 .popup {
-    position: absolute;
-    top: 3px;
-    left: 35px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 12px;
-    background-color: rgb(243, 78, 78);
+  position: absolute;
+  top: 3px;
+  left: 35px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  background-color: rgb(243, 78, 78);
 }
 .popup.hidden {
-    visibility: hidden;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .storeBagAccount {
+    display: none;
+  }
 }
