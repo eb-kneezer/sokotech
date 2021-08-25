@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap");
 
 body {
   font-size: 14px;
@@ -8,13 +8,9 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
-  /* transition: all 0.25s; */
   font-family: "Exo 2", sans-serif;
-  /* color: rgba(168,168,168,155); */
 }
 
-/* rgba(39,102,204,255) */
 :root {
   --blue: rgba(39, 102, 204, 255);
   --yellow: rgba(248, 222, 75, 255);
@@ -25,7 +21,3 @@ h2,
 h3 {
   color: rgba(39, 39, 39, 118);
 }
-
-/* img {
-  width: 100%;
-} */

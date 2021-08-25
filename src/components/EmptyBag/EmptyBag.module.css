@@ -1,18 +1,13 @@
 .confused img {
-    width: 30%;
+  width: 30%;
 }
 
 .emptyContainer {
-    width: 100%;
-    text-align: center;
-}
-
-h3 {
-    margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
 }
 
 .confused {
-    width: 100%;
-    margin: 0  auto 30px auto;
+  width: 100%;
+  margin: 0 auto 30px auto;
 }
-

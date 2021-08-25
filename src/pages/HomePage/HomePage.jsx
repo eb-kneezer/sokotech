@@ -6,6 +6,7 @@ import Product from "../../components/Product/Product";
 import styles from "./HomePage.module.css";
 
 import { useSelector } from "react-redux";
+import Loading from "../../components/Loading/Loading";
 
 const HomePage = () => {
   // -------GET PRODUCTS FROM CONTEXT------- \\
@@ -37,8 +38,6 @@ const HomePage = () => {
       allCategories[index].count += 1;
     }
   });
-
-  //   console.log(allCategories);
 
   // -------FILTER PRODUCTS TO BE RENDERED BASED ON ACTIVE CATEGORY AND SEARCH VALUE---------
 
@@ -84,11 +83,19 @@ const HomePage = () => {
             <span className={styles.number}>{activeCat.count}</span>
           </div>
           <div className={styles.productsContainer}>
-            {filteredProducts.length > 0
-              ? filteredProducts.map(product => (
-                  <Product key={product.id} product={product} />
-                ))
-              : "no products"}
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map(product => (
+                <Product key={product.id} product={product} />
+              ))
+            ) : (
+              <div>
+                <Loading />
+                <Loading />
+                <Loading />
+                <Loading />
+                <Loading />
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.bagListContainer}>

@@ -1,0 +1,57 @@
+.loadingProduct {
+  display: flex;
+  margin: 10px 0;
+  position: relative;
+  background: rgba(228, 228, 228, 0.486);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.loadingImg {
+  width: 90px;
+  height: 100px;
+  background-color: rgb(231, 231, 231);
+}
+
+.loadingDetails {
+  flex-grow: 1;
+  position: relative;
+  padding: 20px;
+}
+
+.loadingDetails p {
+  height: 15px;
+  width: 80%;
+  background: rgb(231, 231, 231);
+  margin-bottom: 10px;
+  border-radius: 2px;
+  -webkit-animation: blinker 2s ease-in infinite;
+  animation: blinker 2s ease-in infinite;
+}
+
+.loadingDetails p:last-of-type {
+  width: 50%;
+}
+
+.loadingBtn {
+  height: 25px;
+  width: 50px;
+  background: rgb(231, 231, 231);
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  -webkit-animation: blinker 2s ease-in infinite;
+  animation: blinker 2s ease-in infinite;
+}
+
+@-webkit-keyframes blinker {
+  50% {
+    background: white;
+  }
+}
+
+@keyframes blinker {
+  50% {
+    background: white;
+  }
+}
