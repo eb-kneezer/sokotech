@@ -25,9 +25,9 @@ function App() {
   const dispatch = useDispatch();
 
   const fetchProducts = () => {
-    fetch("https://custom-fakestore.herokuapp.com/products")
-      .then(res => res.json())
-      .then(shop => dispatch(getProducts(shop)));
+    fetch("https://custom-fakestore.vercel.app/products")
+      .then((res) => res.json())
+      .then((shop) => dispatch(getProducts(shop)));
   };
 
   useEffect(() => {
@@ -35,15 +35,15 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
+    <div className="App">
       <Header />
       <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/product/:productID' component={ProductPage} />
-        <Route exact path='/bag' component={BagPage} />
-        <Route exact path='/successful' component={Successful} />
-        <Route path='/trackorder/:orderID' component={TrackOrder} />
-        <Route exact path='/account' component={AccountPage} />
+        <Route exact path="/" component={HomePage} />
+        <Route path="/product/:productID" component={ProductPage} />
+        <Route exact path="/bag" component={BagPage} />
+        <Route exact path="/successful" component={Successful} />
+        <Route path="/trackorder/:orderID" component={TrackOrder} />
+        <Route exact path="/account" component={AccountPage} />
         <Route component={ErrorPage} />
       </Switch>
       <MobileNav />
